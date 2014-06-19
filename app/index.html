@@ -1,0 +1,182 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>tradingview</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+
+        <!-- TradingView Widget BEGIN -->
+
+        <script type="text/javascript" src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
+
+<!-- TradingView Widget END -->
+
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+        <div class="hero-unit">
+
+          <h3>Links</h3>
+          <p>Opens chart in another window</p>
+          <p id="links">
+            <a data-chart-height="400" data-chart-width="550" data-symbol="XBTEUR" href="" >BTC/EUR</a>
+            <a data-chart-height="400" data-chart-width="550" data-symbol="LTCEUR" href="">LTC/EUR</a>
+          </p>
+
+          <div id="widget-1"></div>
+
+          <div id="widget-2"></div>
+
+          <div id="widget-3"></div>
+
+        </div>
+
+
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <script type="text/javascript">
+
+        //href="https://dwq4do82y8xi7.cloudfront.net/widgetembed/?symbol=XBTEUR&interval=D&symboledit=1&toolbarbg=f1f3f6&hideideas=1&studies=&theme=White&style=1&timezone=exchange" target="_blank"
+          document.getElementById('links').addEventListener('click', function(e){
+            e.preventDefault();
+
+            if (e.target.tagName == 'A'){
+              var data = e.target.dataset,
+                opts = "height=" + data.chartHeight + ", width=" + data.chartWidth,
+                url = "https://dwq4do82y8xi7.cloudfront.net/widgetembed/?symbol="+ data.symbol +"&interval=D&symboledit=1&toolbarbg=f1f3f6&hideideas=1&studies=&theme=White&style=1&timezone=exchange";
+
+              window.open(url, "_blank", opts);
+            }
+          });
+        </script>
+        <script type="text/javascript">
+        new TradingView.MediumWidget({
+          "container_id": "widget-1",
+          "symbols": [
+            [
+              "XBTEUR",
+              "KRAKEN:XBTEUR"
+            ],
+            [
+              "LTCEUR",
+              "KRAKEN:LTCEUR"
+            ]
+          ],
+          "gridLineColor": "#E9E9EA",
+          "fontColor": "#83888D",
+          "underLineColor": "#F0F0F0",
+          "timeAxisBackgroundColor": "#E9EDF2",
+          "trendLineColor": "#FF7965",
+          "width": 1000,
+          "height": 350
+        });
+        </script>
+
+        <!-- TradingView Widget BEGIN -->
+
+
+        <script type="text/javascript">
+        new TradingView.MiniWidget({
+          "container_id": "widget-2",
+          "tabs": [
+            "Crypto",
+            "Forex",
+            "Commodities"
+          ],
+          "symbols": {
+            "Crypto": [
+              ["BTC/EUR","KRAKEN:XBTEUR"],
+              ["LTC/EUR","KRAKEN:LTCEUR"],
+              ["NMC/EUR","KRAKEN:NMCEUR"],
+              ["BTC/LTC","KRAKEN:XBTLTC"],
+              ["BTC/DGE","KRAKEN:XBTXDG"]
+            ],
+            "Forex": [
+              ["EUR/USD","FX:EURUSD"],
+              ["GBP/USD","FX:GBPUSD"],
+              ["USD/JPY","FX:USDJPY"],
+              ["USD/CHF","FX:USDCHF"],
+              ["AUD/USD","FX:AUDUSD"],
+              ["USD/CAD","FX:USDCAD"]
+            ],
+            "Commodities": [
+              [
+                "Gold",
+                "GC1!"
+              ],
+              [
+                "Oil",
+                "CL1!"
+              ],
+              [
+                "Gas",
+                "NG1!"
+              ],
+              [
+                "Corn",
+                "ZC1!"
+              ]
+            ]
+          },
+          "gridLineColor": "#E9E9EA",
+          "fontColor": "#83888D",
+          "underLineColor": "#F0F0F0",
+          "timeAxisBackgroundColor": "#FFFFFF",
+          "trendLineColor": "#FF7965",
+          "activeTickerBackgroundColor": "#EDF0F3",
+          "large_chart_url": "https://www.tradingview.com/e/",
+          "noGraph": false,
+          "width": 350,
+          "height": 400
+        });
+        </script>
+        <!-- TradingView Widget END -->
+
+<!-- TradingView Widget BEGIN -->
+
+<script type="text/javascript">
+new TradingView.widget({
+  "container_id": "widget-3",
+  "width": 600,
+  "height": 400,
+  "symbol": "KRAKEN:XBTEUR",
+  "interval": "D",
+  "timezone": "exchange",
+  "theme": "White",
+  "style": "1",
+  "toolbar_bg": "#f1f3f6",
+  "allow_symbol_change": true,
+  "hideideas": true,
+  "show_popup_button": true,
+  "popup_width": "1000",
+  "popup_height": "650"
+});
+</script>
+<!-- TradingView Widget END -->
+
+
+        <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
